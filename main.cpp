@@ -320,14 +320,37 @@ void movie_restaurant() {
 	cout << count << "\n";
 }
 
+void weird_conjecture(int n) {
+	while (n != 1) {
+		if (n % 2 == 0) {
+			n = n / 2;
+			cout << n << " ";
+		} else {
+			n = 3 * n + 1;
+			cout << n << " ";
+		}
+	}
+}
+
+int distinct_nums(vector<int>& a) {
+	int count = 1, n = a.size();
+	for (int i = 1; i < n; i++) {
+		if (a[i] != a[i-1]) {
+			count++;
+		}
+	}
+	return count;
+}
+
 int main() {
-	// int n;
-	// cin >> n;
-	// vector<int> a(n);
-	// for (int i = 0; i < n; i++) {
-	// 	cin >> a[i];
-	// }
-	// cout << lis_with_binary(a) << "\n";
-	movie_restaurant();
+	int n;
+	cin >> n;
+	vector<int> a(n);
+	for (int i = 0; i < n; i++) {
+		cin >> a[i];
+	}	
+	sort(a.begin(), a.end());
+	cout << distinct_nums(a) << "\n";
+	// weird_conjecture(n);
 	return 0;
 }
