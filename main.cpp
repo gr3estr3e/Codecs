@@ -342,6 +342,28 @@ int distinct_nums(vector<int>& a) {
 	return count;
 }
 
+// int maxprod(vector<int> nums&) {
+// 	int max_i = max_j = INT_MIN;
+// 	int min_i = min_i = INT_MAX;
+
+// }
+
+int music_box(vector<int> &ids) {
+	int i = 0, j_max = 0, i_max = 0, n = ids.size();
+	map<int, int> mapped;
+	for (int j = 0; j < n; j++) {
+		if (mapped.find(ids[j]) != mapped.end()) {
+			i = max(i, mapped[ids[j]] + 1);	
+		}
+		mapped[ids[j]] = j;
+		if (j - i > j_max - i_max) {
+			i_max = i;
+			j_max = j;
+		}
+	}
+	return j_max-i_max+1;
+}
+
 int main() {
 	int n;
 	cin >> n;
@@ -349,8 +371,9 @@ int main() {
 	for (int i = 0; i < n; i++) {
 		cin >> a[i];
 	}	
-	sort(a.begin(), a.end());
-	cout << distinct_nums(a) << "\n";
+	cout << music_box(a) << "\n";
+	// sort(a.begin(), a.end());
+	// cout << distinct_nums(a) << "\n";
 	// weird_conjecture(n);
 	return 0;
 }
