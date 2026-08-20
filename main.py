@@ -91,14 +91,14 @@ def sieve(n):
 #         print(i)
 
 # Square root alogrithm (Heron):
-def square_root_H(s): # Returns -1 if n is negative
+def square_root(s): # Returns -1 if n is negative
     if n < 0:
         return -1
     guess = abs_value(s/2)
     for i in range(0, 15):
         guess = 1/2 * (guess + abs(s)/guess) # Applying formula: xn+1 = 1/2 (xn - S/xn)
     return guess
-# print(square_root_H(int(input())))
+# print(square_root(int(input())))
 
 # def insertion_sort(a):
 #     n = len(a)
@@ -476,11 +476,6 @@ def work1(n, a, b):
         dp[i] = min(dp[i - 1] + a[i], dp[i - 2] + b[i - 1])
     print(dp[n])
 
-def fib(n):
-    if n <= 1:
-        return n
-    return fib(n-1) + fib(n-2)
-
 # for i in range(0, 20):    
 #     print(fib(i))
 
@@ -567,8 +562,6 @@ def fib(n):
         return n
     return fib(n-1) + fib(n-2)
 
-
-sys.setrecursionlimit(100000)
 # Fibonacci with Memoization DP:
 def fib_memo(n, cache):
     if n <= 1:
@@ -578,6 +571,12 @@ def fib_memo(n, cache):
         return cache[n]
     cache[n] = fib_memo(n-1, cache) + fib_memo(n-2, cache)
     return cache[n]
+
+def fib_tab(n, cache):
+    if n <= 1:
+        return cache[n]
+    cache[n] = cache[n-1] + cache[n-2]
+    return fib(n-1, cache)
 
 # n = int(input())
 # memo_n = [-1] * (n+1) 
@@ -699,15 +698,6 @@ Sau khi xoay 180 độ:
 # print(list(itertools.permutations(range(int(input())+1), int(input()))))
 
 # Permutations and Combinations MANUALLY:
-# # Formulas implementation:
-
-def factorial(n):
-    if n == 0:
-        return 1
-    elif n == 1:
-        return n
-    else:
-        return n*factorial(n-1)
 
 # def combinations_formulas(n, k):
 #     return factorial(n) // (factorial(k) * factorial(n-k))
@@ -1112,7 +1102,17 @@ def factorial(n):
     if n == 1:
         return n
     return n*factorial(n-1)
-# print(factorial(int(input("n = "))))
+
+def factorial_memo(n, cache):
+    if n <= 1:
+        cache[n] = 1
+        return cache[n]
+    cache[n] = n * cache[n-1]
+    return factorial_memo(n-1, cache)
+
+n = int(input())
+memo = [0] * (n+1)
+print(factorial_memo(n, memo))
 
 def fibonacci(n):
     a = 0
@@ -1149,7 +1149,7 @@ def lucas(n):
 # print(lucas(20))
 
 def fib_closed_form(n):
-    return round(((1+square_root_H(5)/2)**n)/square_root_H(5))
+    return round(((1+square_root(5)/2)**n)/square_root(5))
 # print(fib_closed_form(16))
 
 # # Assuming that two matrices ARE EQUAL SQUARE MATRICES.
@@ -1604,13 +1604,6 @@ def check_triangle_type(a, b, c):
     else:
         return "Thường"
 # print(check_triangle_type(int(input()), int(input()), int(input())))
-
-def factorial(n):
-    if n == 0:
-        return 1
-    return n*factorial(n-1)
-# print(factorial(int(input())))
-
 
 def a_power_n(a, n):
     return a ** n
@@ -2776,7 +2769,7 @@ def binary_exp_mod(a, n, m): # use with m primes only!
 # Preprocessing phase of
 def sqrt_decomp_preprocessing(a):
     n = len(a)
-    s = math.ceil(square_root_H(n))
+    s = math.ceil(square_root(n))
     b = []
 
     for k in range(s):
@@ -2791,7 +2784,7 @@ def sqrt_decomp_preprocessing(a):
 
 # a = list(map(int, input().split()))
 # n = len(a)
-# s = math.ceil(square_root_H(n))
+# s = math.ceil(square_root(n))
 # b = []
 
 # for k in range(s):
