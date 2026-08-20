@@ -2781,6 +2781,19 @@ def sqrt_decomp_preprocessing(a):
         b.append(b_v)
         return b
 
+def music_box(ids):
+    i = j_max = i_max = 0
+    n = len(ids)
+    mapped = {}
+    for j in range(n):
+        if ids[j] in mapped:
+            i = max(i, mapped[ids[j]] + 1)
+        mapped[ids[j]] = j
+        if (j - i > j_max - i_max):
+            j_max = j
+            i_max = i
+    return j_max - i_max + 1
+
 
 # a = list(map(int, input().split()))
 # n = len(a)
