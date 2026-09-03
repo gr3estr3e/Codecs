@@ -366,6 +366,15 @@ int distinct_nums(vector<int>& a) {
 	return count;
 }
 
+int distinct_nums_set(vector<int>& a) {
+	int count = 1, n = a.size();
+	set<int> b;
+	for (int i = 1; i < n; i++) {
+		b.insert(a[i]);
+	}
+	return b.size();
+}
+
 // int maxprod(vector<int> nums&) {
 // 	int max_i = max_j = INT_MIN;
 // 	int min_i = min_i = INT_MAX;
