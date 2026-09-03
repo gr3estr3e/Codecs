@@ -375,6 +375,29 @@ int distinct_nums_set(vector<int>& a) {
 	return b.size();
 }
 
+void traffik_lights() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    int x, n, tmp, max_range = 0;
+    cin >> x >> n;
+    set<pair<int, int>> routes = {{0, x}};
+    multiset<int> routes_len = {x};
+    for (int i = 0; i < n; i++) {
+        cin >> tmp;
+        auto pos = routes.upper_bound({tmp, 0});
+        pos--;
+        int start = pos->first, end = pos->second;
+        routes.erase(pos);
+        routes_len.erase(routes_len.find(end-start));
+
+        routes.insert({start, tmp});
+        routes.insert({tmp, end});
+        routes_len.insert(tmp-start);
+        routes_len.insert(end-tmp);
+        cout << *--routes_len.end() << " ";
+    }
+}
+
 // int maxprod(vector<int> nums&) {
 // 	int max_i = max_j = INT_MIN;
 // 	int min_i = min_i = INT_MAX;
