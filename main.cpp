@@ -299,7 +299,7 @@ int min_price(int n, vector<int>& a, vector<int>& b) {
 	return min_p;
 }
 
-// Greedy algo #1: associated with tasks 1619 & 1629 on CSES
+// Greedy algo #1:
 void movie_restaurant() {
 	int n, count = 0, end_time = 0;
 	cin >> n;
@@ -318,6 +318,30 @@ void movie_restaurant() {
 		}
 	}
 	cout << count << "\n";
+}
+
+void res_cus() {
+	int n;
+ 
+	cin >> n;
+ 
+	vector<pair<int, int>> times;
+ 
+	for (int i = 0; i < n; i++) {
+		int start, end;
+		cin >> start >> end;
+		times.push_back({start, 1});
+		times.push_back({end, -1});
+	}
+ 
+	sort(times.begin(), times.end());
+	int curr_ppl = 0;
+	int max_ppl = 0;
+	for (const pair<int, int> &t : times) {
+		curr_ppl += t.second;
+		max_ppl = max(max_ppl, curr_ppl);
+	}
+	cout << max_ppl << "\n";
 }
 
 void weird_conjecture(int n) {
