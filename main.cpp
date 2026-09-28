@@ -421,6 +421,9 @@ int music_box(vector<int> &ids) {
 }
 
 int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+	
 	int n;
 	cin >> n;
 	vector<int> a(n);
@@ -431,5 +434,326 @@ int main() {
 	// sort(a.begin(), a.end());
 	// cout << distinct_nums(a) << "\n";
 	// weird_conjecture(n);
+
+	    // int n, t, lower = 0, upper = 1e9, mid, res;
+    // cin >> n >> t;
+    // vector<int> efficiency(n);
+    // for (int i=0; i < n; i++) {
+    //     cin >> efficiency[i];
+    // }
+ 
+    // while (lower <= upper) {
+    //     int mid = floor((lower + upper) / 2);
+    //     int ans = 0;
+    //     for (int i = 0; i < n; i++) {
+    //         ans += (mid / efficiency[i]);
+    //     }
+ 
+    //     if (ans < t) {
+    //         lower = mid + 1;
+    //     } else {
+    //         res = mid;
+    //         upper = mid - 1;
+    //     }
+    // }
+    // cout << res << "\n";
+
+
+    // int t;
+    // cin >> t;
+    // for (int i = 0; i < t; i++) {
+    //     set<int> uniques;
+    //     int n;
+    //     cin >> n;
+    //     for (int j = 0; j < n; j++) {
+    //         int tmp;
+    //         cin >> tmp;
+    //         uniques.insert(tmp);
+    //     }
+    //     int len = 0;
+        
+    // }
+
+
+    // int t;
+    // cin >> t;
+    // for (int i = 0; i < t; i++) {
+    //     int x, n;
+    //     cin >> x >> n;
+    //     if (n % 2 == 0) {
+    //         cout << 0 << "\n";
+    //     } else {
+    //         cout << x << "\n";
+    //     }
+    // }
+
+    // int t;
+    // cin >> t;
+    // for (int i = 0; i < t; i++) {
+    //     int n;
+    //     cin >> n;
+    //     bool even = false, odd = false;
+    //     vector<int> tois(n);
+    //     for (int j = 0; j < n; j++) {
+    //         cin >> tois[j];
+    //         if (tois[j] % 2 == 0) {
+    //             even = true;
+    //         } else {
+    //             odd = true;
+    //         }
+    //     }
+    //     if (even && odd) {
+    //         sort(tois.begin(), tois.end());
+    //     }
+    //     for (int j = 0; j < n; j++) {
+    //         cout << tois[j] << " ";
+    //     }
+    //     cout << "\n";
+    // }
+
+    // int t;
+    // cin >> t;
+    // for (int i = 0; i < t; i++) {
+    //     int a;
+    //     string randomed, purfect;
+    //     cin >> a;
+    //     cin >> randomed >> purfect;
+    //     sort(purfect.begin(), purfect.end());
+    //     sort(randomed.begin(), randomed.end());
+    //     if (randomed == purfect) {
+    //         cout << "YES" << "\n";
+    //     } else {
+    //         cout << "NO" << "\n";
+    //     }
+    // }
+
+    // int a, b, c, d, t;
+    // cin >> t;
+    // for (int i = 0; i < t; i++) {
+    //     cin >> a >> b >> c >> d;
+    //     if (a == b and b == c and c == d and d == a) {
+    //         cout << "YES" << "\n";
+    //     } else {
+    //         cout << "NO" << "\n";
+    //     }
+    // }
+
+    // int a, b, yr = 0;
+    // cin >> a >> b;
+    // while (a<=b) {
+    //     a *= 3;
+    //     b *= 2;
+    //     yr++;
+    // }
+    // cout << yr << "\n";
+    // string input;
+    // cin >> input;
+    // if (isupper(input[0])) {
+    //     cout << input << "\n";
+    // } else {
+    //     input[0] = toupper(input[0]);
+    //     cout << input << "\n";
+    // }
+
+    // int n, m;
+    // cin >> n >> m;
+    // cout << n * m / 2 << "\n";
+
+    // int t;
+    // cin >> t;
+    // while (t--) {
+    //     int n, m ,x ,y;
+    //     cin >> n >> m >> x >> y;
+    //     int tmp;
+    //     for (int p = 0; p < n; p++) {
+    //         cin >> tmp;
+    //     }
+    //     for (int p = 0; p < m; p++) {
+    //         cin >> tmp;
+    //     }
+    //     cout << n+m << "\n";
+    // }
+
+    // int t;
+    // cin >> t;
+    // while (t--) {
+    //     int n, m, a0 = 0, b0 = 0, ans = 0;
+    //     cin >> n >> m;
+    //     for (int i = 0; i < n; i++) {
+    //         int a, b;
+    //         cin >> a >> b;  
+    //         ans += (a-a0);
+    //         ans -= ((a-a0+2) % 2) != ((abs(b-b0+2)) % 2);
+    //         a0 = a;
+    //         b0 = b;
+    //     }
+    //     ans += (m-a0);
+    //     cout << ans << "\n";
+    // }
+
+    // int n;
+    // cin >> n;
+    // for (int i = 0; i < n; i++) {
+    //     string n;
+    //     cin >> n;
+    //     reverse(n.begin(), n.end());
+    //     for (int i = 0; i < n.size(); i++) {
+    //         if (n[i] == 'p') {
+    //             n[i] = 'q';
+    //         } else if (n[i] == 'q') {
+    //             n[i] = 'p';
+    //         }
+    //     }
+    //     cout << n << "\n";
+    // }
+    
+    // int n;
+    // cin >> n;
+    // for (int i = 0; i < n; i++) {
+    //     int m, a, b, c, total=0, left=0;
+    //     cin >> m >> a >> b >> c;
+    //     if(m>=a){
+    //         total+=a;
+    //         left+=(m - a);
+    //     }else{
+    //         total+=m;
+    //     }
+    //     if(m>=b){
+    //         total+=b;
+    //         left+=(m - b);
+    //     }else{
+    //         total+=m;
+    //     }
+    //     if(left>=c) total+=c;
+    //     else total+=left;
+    //     cout << total << "\n";
+    // }
+
+    // for (int i = 0; i < n; i++) {
+    //     int a;
+    //     cin >> a;
+    //     cout << a-1 << "\n";
+    // }
+
+    // string str1;
+    // cin >> str1;
+    // set<char> uniques(str1.begin(), str1.end());
+    // if (uniques.size() % 2 == 0) {
+    //     cout << "CHAT WITH HER!" << "\n";
+    // } else {
+    //     cout << "IGNORE HIM!" << "\n";
+    // }
+
+    // string str1, str2;
+    // cin >> str1;
+    // cin >> str2;
+    // transform(str1.begin(), str1.end(), str1.begin(), ::tolower);
+    // transform(str2.begin(), str2.end(), str2.begin(), ::tolower);
+    // if (str1 < str2) {
+    //     cout << "-1" << "\n";
+    // } else if (str2 < str1) {
+    //     cout << "1" << "\n";
+    // } else {
+    //     cout << "0" << "\n";
+    // }
+
+    // long long rows=0, cols= 0, ans;
+    // vector<vector<int>> scores(6, vector<int>(6, 0));
+    // for (int i = 0; i < 5; i++) {
+    //     for (int j = 0; j < 5; j++) {
+    //         cin >> scores[i][j];
+    //     }
+    // }
+    // for (int i = 0; i < 5; i++) {
+    //     rows++;
+    //     for (int j = 0; j < 5; j++) {
+    //         cols++;
+    //         if (scores[i][j] == 1) {
+    //             ans = abs(rows-3) + abs(cols-3);
+    //         }
+    //         if (cols == 5) {
+    //             cols = 0;
+    //         }
+    //     }
+    // }
+    // cout << ans << "\n";
+    // for (int i = 0; i < max; i++) {
+    //     cin >> scores[i];
+    // }
+    // minimum = scores[k-1];
+    // for (int j = 0; j < max; j++) {
+    //     if (scores[j] >= minimum and scores[j] > 0) {
+    //         ans++;
+    //     }
+    // }
+    // cout << ans << "\n";
+    // for (int i = 0; i < max; i++) {
+    //     string tmp;
+    //     cin >> tmp;
+    //     if (tmp.find("++") != -1) {
+    //         ans++;
+    //     } else {
+    //         ans--;
+    //     }
+    // }
+    // cout << ans << "\n";
+    // for (int i = 0; i<max; i++) {
+    //     int a, b, c;
+    //     cin >> a >> b >> c;
+    //     if (a + b + c >= 2) {
+    //         ans++;
+    //     }
+    // }
+    // cout << ans << "\n";
+    // for (int i = 0; i < a; i++) {
+    //     long long tmp;
+    //     cin >> tmp;
+    //     if (tmp > k) {
+    //         ans += 2;
+    //     } else {
+    //         ans++;
+    //     }
+    // }
+    // cout << ans << "\n";
+    // string result_matches;
+    // cin >> result_matches;
+    // for (int i = 0; i < a; i++) {
+    //     if (result_matches[i] == 'A') {
+    //         anton++;
+    //     } else {
+    //         danik++;
+    //     }
+    // }
+    // if (anton > danik) {
+    //     cout << "Anton" << "\n";
+    // } else if (anton == danik) {
+    //     cout << "Friendship" << "\n";
+    // } else {
+    //     cout << "Danik" << "\n";
+    // }
+    // for (int i = 0; i < a; i++) {
+    //     string tmp;
+    //     cin >> tmp;
+    //     int tmp_size = tmp.size(), reward = tmp_size-2;
+    //     if (tmp_size <= 10) {
+    //         cout << tmp << "\n";
+    //     } else {
+    //         string new_tmp = "";
+    //         new_tmp += tmp[0];
+    //         new_tmp += to_string(reward);
+    //         new_tmp += tmp[tmp_size-1];
+    //         cout << new_tmp << "\n";
+    //     }
+    // }
+    // if (a == 2) {
+    //     cout << "NO" << "\n";
+    //     return 0;
+    // }
+    // if (a % 2 == 0) {
+    //     cout << "YES" << "\n";
+    // } else {
+    //     cout << "NO" << "\n";
+    // }
+	
 	return 0;
 }
