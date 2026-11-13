@@ -9,6 +9,7 @@ int find(int x) {
     if (dsu[x] < 0) return x;
     int y = find(dsu[x]);
     dsu[x] = y;
+    return y;
 }
 
 void uni(int x, int y) {
@@ -29,11 +30,12 @@ signed main() {
         cin >> n >> m;
         if(n == 0 && m == 0) break;
         for (int i = 1; i <= n; i++) dsu[i] = -1;
-        for (int i = 1; i <= m; i++) {
+        for (int i = 0; i < m; i++) {
             int a, b;
             cin >> a >> b;
             uni(a, b);
         }
+        niggers = 0;
         for (int i = 1; i <= n; i++) {
             if (dsu[i] < 0) {
                 niggers++;
