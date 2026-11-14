@@ -1,16 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 int main() {
-    int n, s;
+    int n;
+    bool flag = false;
     cin >> n;
     for (int i = 0; i < n; i++) {
-        int j;
-        cin >> j;
-        s += j;
+        int a;
+        cin >> a;
+        if (a != 0) flag = true;
     }
-    if (s > 0) {
-        cout << "HARD" << "\n";
-    } else {
-        cout << "EASY" << "\n";
-    }
+    if (flag != false) cout << "HARD" << "\n";
+    else cout << "EASY" << "\n";
 }
