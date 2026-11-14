@@ -1,6 +1,8 @@
 # Libraries used:
 import math
-import sys
+from bisect import *
+
+# import sys
 # import struct
 # import re
 # import itertools
@@ -10,7 +12,6 @@ import sys
 # # import matplotlib.pyplot as pyplot
 # import turtle
 # import tkinter
-from bisect import *
 
 
 # Algorithms self-built: these things are SO fucking cool man
@@ -52,13 +53,13 @@ def binary_search(l, r, a, k):
         return binary_search(l, mid-1, a, k)
     return mid
 
-# LINEAR SEARCH: requires a iterable, a element in that iterable. For "ind" please input 0.
-def linear_search(ind, a, k):
+# LINEAR SEARCH: requires a iterable
+def linear_search(a, k, ind):
     if ind == len(a):
         return None
     if a[ind] == k:
         return ind
-    return linear_search(ind+1, a, k)
+    return linear_search(a, k, ind+1)
 
 # # BUBBLE SORT:
 def bubble_sort(a):
@@ -85,12 +86,19 @@ def sieve(n):
                 primes_mark[j] = False
     return primes_mark[n]
 
+def sieve_divisors(n): # This return the DIVISORS list instead
+    divisors = [0] * (n+1)
+    for i in range(1, n+1):
+        for i in range(1, n+1, i):
+            divisors[j] += 1
+    return divisors
+
 # a, b = list(map(int, input().split()))
 # for i in (a, b):
 #     if sieve(i):
 #         print(i)
 
-# Square root alogrithm (Heron):
+# Square root alogrithm ( Using Heron's method):
 def square_root(s): # Returns -1 if n is negative
     if n < 0:
         return -1
@@ -615,30 +623,24 @@ def sort_row(row_sort):
 # 31/12/2025:
 """Một dãy số được tạo thành theo quy luật đặc biệt như sau:
 Số thứ nhất là 2
-
-
 Số thứ hai là 5
-
 
 Từ số thứ ba trở đi:
  a[i] = a[i-1] * 2 - a[i-2] + i
-
 
 Yêu cầu:
  Viết chương trình nhập vào số nguyên n (1 ≤ n ≤ 30), in ra số thứ n trong dãy.
 Ví dụ:
 Input: 5  
 Output: 36"""
-# n = int(input("n="))
-# a=[2, 5]
-# if n == 1:
-#     print(a[0])
-# elif n == 2:
-#     print(a[1])
-# else:
-#     for i in range(3, n):
-#         a.append(a[i-1] * 2 - a[i-2] + i)
-#     print(a)
+def special_array(n):
+    a = [2, 5]
+    for i in range(2, n):
+        a.append(a[i-1]* 2 - a[i-2]+ i)
+    return a
+n = int(input())
+print(special_array(n))
+
 
 # 31/12/2025 #2:
 """ Cho một ma trận vuông n x n (n ≤ 20), gồm các số nguyên dương.
@@ -1110,9 +1112,9 @@ def factorial_memo(n, cache):
     cache[n] = n * cache[n-1]
     return factorial_memo(n-1, cache)
 
-n = int(input())
-memo = [0] * (n+1)
-print(factorial_memo(n, memo))
+# n = int(input())
+# memo = [0] * (n+1)
+# print(factorial_memo(n, memo))
 
 def fibonacci(n):
     a = 0
