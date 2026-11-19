@@ -11,6 +11,8 @@
 
 using namespace std;
 
+#define int long long
+
 // All algorithms learned written in C++, for references and learning
 // Using as least libraries as possible
 
@@ -207,6 +209,18 @@ int lis_with_binary(vector<int>& a) {
 		}
 	}
 	return ans;
+}
+
+int factorial(int n, vector<int>& cache) {
+	if (n <= 1) {
+		cache[n] = n;
+		return cache[n];
+	}
+	if (cache[n] != -1) {
+		return cache[n];
+	}
+	cache[n] = n*factorial(n-1);
+	return cache[n];
 }
 
 // // Bubble Sort.
@@ -420,7 +434,7 @@ int music_box(vector<int> &ids) {
 	return j_max-i_max+1;
 }
 
-int main() {
+signed main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
 	
