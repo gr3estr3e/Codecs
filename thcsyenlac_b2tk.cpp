@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> veca((int)1e5);
+vector<int> veca((int)1e5+5);
 
 int binsearch(int l, int r, int k) {
     int ans = -1, mid;
@@ -18,10 +18,13 @@ int binsearch(int l, int r, int k) {
 }
 
 int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
     int n, q;
     // vector<int> a(n);
     cin >> n >> q;
-    for (int i = 0; i < n; i++) cin >> veca[i];
+    for (int i = 1; i <= n; i++) cin >> veca[i];
+    // sort(veca.begin(), veca.end());
     for (int i = 0; i < q; i++) {
         int l, r, x;
         cin >> l >> r >> x;
