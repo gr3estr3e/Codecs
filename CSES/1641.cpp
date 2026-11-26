@@ -8,11 +8,9 @@ signed main() {
     int n, x;
     cin >> n >> x;
     vector<pair<int, int>> a(n);
-    // map<int, int> indices;
     for (int i = 0; i < n; i++) cin >> a[i].first, a[i].second = i;
 
     sort(a.begin(), a.end());
-    // sort(indices.begin(), indices.end());
 
     for (int i = 0, j, k, curr; i < n-1 ;i++) {
         j = i+1, k = n-1;
