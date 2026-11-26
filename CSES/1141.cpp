@@ -4,19 +4,21 @@ using namespace std;
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int n, l=0, r=0, max_length = 0; cin >> n;
-    vector<int> ids(n);
-    set<int> indexes;
-    for (int i = 0; i < n; i++) cin >> ids[i];
+    int n, l, r, maxl = 0; cin >> n;
+    vector<int> k(n); for (int i = 0; i < n; i++) cin >> k[i];
+    map<int, int> indexes;
 
+    l = 0, r = 0;
     while (r < n) {
-        while (indexes.count(ids[r])) {
-            indexes.erase(ids[l]);
-            l++;
+        if (indexes.find(k[r]) != indexes.end()) {
+            l = max(l, indexes[k[r]] + 1);
+            indexes[k[r]] = r;
+            r++;
+        } else {
+            indexes[k[r]] = r;
+            r++;
         }
-        indexes.insert(ids[r]);
-        max_length = max(max_length, r-l+1);
-        r++;
+        maxl = max(maxl, r-l);
     }
-    cout << max_length;
+    cout << maxl << "\n";
 }
