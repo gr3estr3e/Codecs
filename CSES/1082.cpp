@@ -1,20 +1,26 @@
 #include <bits/stdc++.h>
-using namespace std;
 
 #define int long long
+using namespace std;
+const int mod = 1e9+7, maxn = 1e12;
 
-signed main() {
-    int n, a;
-    cin >> n;
-    a = sqrt(n);
-    vector<int> divisors;
-    for (int i = 1; i*i <= n; i++) {
-        for (int j = i; j <= n; j+=i) {
-            divisors.push_back(i);
-            if (j/i!=i) {
-                divisors.push_back(j/i);
-            }
+int sum_divs(int n) {
+    vector<int> sums(maxn+1, 0);
+    for (int j = 1; j <= n; j++) {
+        for (int k = j; k <= n; k+=j) {
+            sums[k] += j;
         }
     }
-    cout << accumulate(divisors.begin(), divisors.end(), 0);
+    return sums[n];
+}
+
+signed main() {
+    int n, ans = 0;
+    cin >> n;
+    vector<int> sum(maxn+1, 0);
+    for (int i = 1; i <= n; i++) {
+        sum[i] = sum_divs(i);
+    }
+    for (int i = 1; i <= n; i++) ans += sum[i];
+    cout << ans % mod << "\n";
 }
